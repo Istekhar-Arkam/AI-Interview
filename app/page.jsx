@@ -1,4 +1,4 @@
-import { StarsBackgroundDemo } from "@/components/demo-components-backgrounds-stars"
+import { StarsBackgroundDemo } from "@/components/demo-components-backgrounds-stars";
 import { Button } from "@/components/ui/button";
 import { GoldTitle, GrayTitle } from "@/components/reusables";
 import React from "react";
@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { AVATARS } from "@/lib/data";
 import Image from "next/image";
+import { CodeDemo } from "@/components/demo-components-animate-code";
 
 function Home() {
   return (
@@ -67,10 +68,9 @@ function Home() {
             </div>
           </div>
 
-<div className="col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
-
-
-</div>
+          <div className="col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
+            <CodeDemo duration={30000} writing />
+          </div>
         </section>
       </div>
     </>
