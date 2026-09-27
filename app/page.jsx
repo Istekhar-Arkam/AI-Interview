@@ -1,4 +1,4 @@
-import { StarsBackgroundDemo } from "@/components/ui/demo-components-backgrounds-stars";
+import { StarsBackgroundDemo } from "@/components/demo-components-backgrounds-stars"
 import { Button } from "@/components/ui/button";
 import { GoldTitle, GrayTitle } from "@/components/reusables";
 import React from "react";
