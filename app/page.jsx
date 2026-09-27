@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { AVATARS } from "@/lib/data";
 import Image from "next/image";
+
 function Home() {
   return (
     <>
@@ -65,6 +66,11 @@ function Home() {
               </p>
             </div>
           </div>
+
+<div className="col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
+
+
+</div>
         </section>
       </div>
     </>
