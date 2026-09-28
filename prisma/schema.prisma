@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client"
   output   = "../lib/generated/prisma"
@@ -6,6 +9,8 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+// ─── ENUMS ───────────────────────────────────────────────
 
 enum UserRole {
   UNASSIGNED
@@ -55,7 +60,7 @@ enum TransactionType {
   ADMIN_ADJUSTMENT
 }
 
-// USER
+// ─── USER ────────────────────────────────────────────────
 
 model User {
   id          String   @id @default(uuid())
@@ -104,21 +109,21 @@ model Availability {
 // ─── BOOKINGS ────────────────────────────────────────────
 
 model Booking {
-  id             String              @id @default(uuid())
+  id             String        @id @default(uuid())
   intervieweeId  String
-  interviewee    User                @relation("IntervieweeBookings", fields: [intervieweeId], references: [id])
+  interviewee    User          @relation("IntervieweeBookings", fields: [intervieweeId], references: [id])
   interviewerId  String
-  interviewer    User                @relation("InterviewerBookings", fields: [interviewerId], references: [id])
+  interviewer    User          @relation("InterviewerBookings", fields: [interviewerId], references: [id])
   startTime      DateTime
   endTime        DateTime
-  status         BookingStatus       @default(SCHEDULED)
+  status         BookingStatus @default(SCHEDULED)
   creditsCharged Int
-  streamCallId   String?             @unique
+  streamCallId   String?       @unique
   recordingUrl   String?
   feedback       Feedback?
   transactions   CreditTransaction[]
-  createdAt      DateTime            @default(now())
-  updatedAt      DateTime            @updatedAt
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
 
   @@index([status, createdAt])
   @@index([interviewerId, status])
