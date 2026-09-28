@@ -9,8 +9,12 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
-
-function Header() {
+import { checkUser } from "@/lib/checkUser";
+import { CalendarDays, Users } from "lucide-react";
+import CreditButton from "./Creditbutton";
+import RoleRedirect from "./RoleRedirect";
+const Header = async () => {
+  const user = await checkUser();
   return (
     <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-3 sm:px-10 py-3 border-b border-white/7 backdrop-blur-xl">
       <Link href={"/"}>
@@ -23,15 +27,10 @@ function Header() {
         />
       </Link>
       {/* redirection logic */}
-
-
-
+      {user && <RoleRedirect role={user.role} />}
       {/* sign in */}
       <div className="flex item-center gap-3">
         <Show when="signed-out">
-{/* link */}
-
-{/* credit */}
           <SignInButton>
             <Button variant="ghost">Sign In</Button>
           </SignInButton>
@@ -40,11 +39,44 @@ function Header() {
           </SignUpButton>
         </Show>
         <Show when="signed-in">
+          {/* link */}
+          {user?.role === "INTERVIEWER" && (
+            <Button variant="ghost" asChild>
+              <Link href="/dashboard">Dashboard</Link>
+            </Button>
+          )}
+          {user?.role === "INTERVIEWEE" && (
+            <>
+              <Button variant="ghost" asChild>
+                <Link href="/explore">
+                  <Users size={16} />
+                  <span className="hidden md:inline">Explore</span>
+                </Link>
+              </Button>
+              <Button variant="default" asChild>
+                <Link href="/appointments">
+                  <CalendarDays size={16} />
+                  <span className="hidden md:inline">My Appointments</span>
+                </Link>
+              </Button>
+            </>
+          )}
+
+          <CreditButton
+            role={user?.role === "INTERVIEWER" ? "INTERVIEWER" : "INTERVIEWEE"}
+            credits={
+              (user?.role === "INTERVIEWER"
+                ? user?.creditBalance
+                : user?.credits) ?? 0
+            }
+          />
+
+          {/* credit */}
           <UserButton />
         </Show>
       </div>
     </nav>
   );
-}
+};
 
 export default Header;

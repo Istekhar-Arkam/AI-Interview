@@ -307,8 +307,18 @@ function Home() {
               Each credit = one session. Unused credits roll over.
             </p>
           </div>
-          <PricingSection />
-          {/* <PricingTable/> */}
+          {/* <PricingSection /> */}
+          <PricingTable
+            checkoutProps={{
+              appearance: {
+                elements: {
+                  drawerRoot: {
+                    zIndex: 2000,
+                  },
+                },
+              },
+            }}
+          />
         </section>
 
         <section className="relative z-10 pb-28 max-w-5xl mx-auto px-6">

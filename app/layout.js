@@ -4,6 +4,7 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/sonner";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -37,11 +38,12 @@ export default function RootLayout({ children }) {
             {/* header */}
             <Header />
             <main className="min-h-screen">{children}</main>
+            <Toaster richColors />
+            {/* footer */}
+            <footer className="relative z-10 border-t border-white/7 py-12  mx-auto px-6 flex flex-wrap items-center justify-center text-stone-400">
+              Made with ❤️ by Istekhar Arkam
+            </footer>
           </ThemeProvider>
-          {/* footer */}
-          <footer className="relative z-10 border-t border-white/7 py-12  mx-auto px-6 flex flex-wrap items-center justify-center text-stone-400">
-            Made with ❤️ by Istekhar Arkam
-          </footer>
         </body>
       </html>
     </ClerkProvider>
