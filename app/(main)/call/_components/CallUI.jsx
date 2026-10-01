@@ -154,7 +154,7 @@ export default function CallUI({
             </button>
 
             {/* AI Questions tab — interviewer only */}
-            {true && (
+            {isInterviewer && (
               <button
                 type="button"
                 onClick={() => setActiveTab("ai")}
