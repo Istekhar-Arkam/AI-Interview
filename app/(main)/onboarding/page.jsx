@@ -11,7 +11,7 @@ import { completeOnboarding } from "@/actions/onboarding";
 import useFetch from "@/hooks/use-fetch";
 import { CATEGORIES, ONBOARDING_ROLES, YEARS_OPTIONS } from "@/lib/data";
 
-const OnboardingPage=() =>{
+export default function OnboardingPage() {
   const router = useRouter();
 
   const { data, loading, fn: onboardingFn } = useFetch(completeOnboarding);
@@ -225,8 +225,8 @@ const OnboardingPage=() =>{
               {loading
                 ? "Setting up your account…"
                 : role === "INTERVIEWER"
-                  ? "Create interviewer profile →"
-                  : "Explore Interviewers →"}
+                ? "Create interviewer profile →"
+                : "Go to dashboard →"}
             </Button>
           </div>
         )}
