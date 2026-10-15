@@ -1,4 +1,3 @@
-
 function BentoCard({ icon, title, desc, children, className = "" }) {
   return (
     <div
@@ -16,7 +15,7 @@ function BentoCard({ icon, title, desc, children, className = "" }) {
 
       {children}
     </div>
-  )
+  );
 }
 
-export default BentoCard
+export default BentoCard;

@@ -1,5 +1,5 @@
 "use client";
-
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import { Coins } from "lucide-react";
 import UpgradeModal from "./UpgradeModal";
@@ -10,7 +10,7 @@ export default function CreditButton({ role, credits }) {
 
   const handleClick = () => {
     if (role === "INTERVIEWER") {
-      window.location.href = "/dashboard";
+      redirect("/dashboard");
     } else {
       setOpen(true);
     }
