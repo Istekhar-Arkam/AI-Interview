@@ -11,7 +11,7 @@ import { completeOnboarding } from "@/actions/onboarding";
 import useFetch from "@/hooks/use-fetch";
 import { CATEGORIES, ONBOARDING_ROLES, YEARS_OPTIONS } from "@/lib/data";
 
-export default function OnboardingPage() {
+const OnboardingPage=() =>{
   const router = useRouter();
 
   const { data, loading, fn: onboardingFn } = useFetch(completeOnboarding);
