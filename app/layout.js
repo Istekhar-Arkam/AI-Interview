@@ -27,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider appearance={{ theme: dark }}>
-      <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+      <html lang="en" suppressHydrationWarning>
         <body className={`${lora.variable} ${dmSans.variable} font-sans`}>
           <ThemeProvider
             attribute="class"
