@@ -66,7 +66,7 @@ export default function OnboardingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-black px-6 py-24 flex flex-col items-center">
+    <main className="min-h-screen bg-black px-6 py-10 flex flex-col items-center">
       <div className="w-full max-w-2xl">
         {/* Heading */}
         <div className="text-center mb-10">
@@ -225,8 +225,8 @@ export default function OnboardingPage() {
               {loading
                 ? "Setting up your account…"
                 : role === "INTERVIEWER"
-                ? "Create interviewer profile →"
-                : "Go to dashboard →"}
+                  ? "Create interviewer profile →"
+                  : "Go to dashboard →"}
             </Button>
           </div>
         )}
